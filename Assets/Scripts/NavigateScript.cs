@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerScript : MonoBehaviour {
+
+public class NavigateScript : MonoBehaviour {
     public int SceneToBeLoaded;
 
 	// Use this for initialization
@@ -13,14 +14,11 @@ public class PlayerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+      
 	}
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnMouseDown()
     {
-        if (collision.gameObject.CompareTag("Door"))
-        {
-            SceneManager.LoadScene(SceneToBeLoaded);
-        }
+        SceneManager.LoadScene(SceneToBeLoaded);   
     }
 }
