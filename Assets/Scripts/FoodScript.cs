@@ -1,27 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class FoodScript : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+public class FoodScript : MonoBehaviour
+{
+    public PlayerHealth playerHP;
+    //private PlayerHealth fruitScript;
 
-    void OnMouseDown()
+    // Use this for initialization
+    void Start()
     {
-        /*
-        playerHP = GameObject.Find("PlayerHealth").GetComponent <PlayerHealth >();
-        //PlayerHealth.Heal(20);
-        playerHP.Heal(20.0f);
-        Destroy(gameObject);
-        */
+
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    public void OnMouseDown()
+    {
+        
+        playerHP.Heal(20.0f);
+        Destroy(gameObject);
+    }
 }
+
+/*
+PlayerHealth player = GameObject.Find("PlayerHealth").GetComponent<PlayerHealth>();
+//PlayerHealth.Heal(20);
+player.Heal(20.0f);
+*/

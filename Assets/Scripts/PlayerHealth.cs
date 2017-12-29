@@ -24,9 +24,9 @@ public class PlayerHealth : MonoBehaviour {
 	void Update () {
         
         string healthValue= "";
-        healthValue += CurrentHealth.ToString("0.0");
+        healthValue += CurrentHealth.ToString("0" );
 
-        health.text = healthValue;
+        health.text = healthValue + "%";
 
         // Deal damage to player overtime
         DealDamage(0.01f);
@@ -50,8 +50,7 @@ public class PlayerHealth : MonoBehaviour {
     }
 
 
-     void Heal(float healValue)
-    {
+     public void Heal(float healValue) {
         if ((CurrentHealth += healValue) > MaxHealth)
             CurrentHealth = 100.0f;
         
