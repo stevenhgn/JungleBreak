@@ -6,7 +6,7 @@ public class GameController : MonoBehaviour {
     public static GameController instance;
     //public string[] iventory;
     public List<string> iventory = new List<string>();
-    public int hp;
+    //public int hp;
 
     void Awake() {
         // If we don't currently have a game controll....

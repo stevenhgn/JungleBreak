@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour {
-    public float CurrentHealth { get; set; }
-    public float MaxHealth { get; set; }
+    public  float CurrentHealth { get; set; }
+    public  float MaxHealth { get; set; }
     public Text health;
 
-    public Slider healthbar;
+    public  Slider healthbar;
 
 
 	// Use this for initialization
@@ -39,23 +39,31 @@ public class PlayerHealth : MonoBehaviour {
         */
 	}
 
-    void DealDamage(float damageValue)
-    {
+   
+     void DealDamage(float damageValue) {
         CurrentHealth -= damageValue;
         healthbar.value = CalculateHealth();
 
-        if (CurrentHealth <= 0)
-        {
+        if (CurrentHealth <= 0) 
             Die();
-        }  
+        
     }
 
-    float CalculateHealth() {
+
+     void Heal(float healValue)
+    {
+        if ((CurrentHealth += healValue) > MaxHealth)
+            CurrentHealth = 100.0f;
+        
+        healthbar.value = CalculateHealth();
+    }
+
+     float CalculateHealth() {
         
         return CurrentHealth / MaxHealth;
     }
 
-    void Die() {
+     void Die() {
         CurrentHealth = 0;
         Debug.Log("You are dead.");
     }
