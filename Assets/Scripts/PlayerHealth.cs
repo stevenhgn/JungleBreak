@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour {
     public float CurrentHealth { get; set; }
     public float MaxHealth { get; set; }
-    public string HealthValue;
+    public Text health;
 
     public Slider healthbar;
 
@@ -22,9 +22,13 @@ public class PlayerHealth : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        
+        string healthValue= "";
+        healthValue += CurrentHealth.ToString("0.0");
 
-        HealthValue = CurrentHealth.ToString("R");
+        health.text = healthValue;
 
+        // Deal damage to player overtime
         DealDamage(0.01f);
 
         /*
