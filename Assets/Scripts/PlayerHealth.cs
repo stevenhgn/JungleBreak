@@ -40,7 +40,7 @@ public class PlayerHealth : MonoBehaviour {
 	}
 
    
-     void DealDamage(float damageValue) {
+     public void DealDamage(float damageValue) {
         CurrentHealth -= damageValue;
         healthbar.value = CalculateHealth();
 

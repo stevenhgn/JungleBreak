@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class FoodScript : MonoBehaviour
+public class Plums : MonoBehaviour
 {
     public PlayerHealth playerHP;
     //private PlayerHealth fruitScript;
@@ -23,8 +23,7 @@ public class FoodScript : MonoBehaviour
 
     public void OnMouseDown()
     {
-        
-        playerHP.Heal(20.0f);
+        playerHP.DealDamage(20.0f);
         Destroy(gameObject);
     }
 }
