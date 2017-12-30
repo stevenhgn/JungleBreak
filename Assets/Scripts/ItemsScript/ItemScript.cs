@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class ItemScript : MonoBehaviour
 {
     public string itemName;
-    public bool isDestroyed;
     public string itemID;
 
     void Awake()
@@ -17,8 +16,8 @@ public class ItemScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        // If the item was destroyed, it does not need to be recreated
         if (GameController.instance.itemsDestroyStatus.ContainsKey(itemID)){
-            print("existed");
             if(GameController.instance.itemsDestroyStatus[itemID] == false){
                 Destroy(gameObject);
             }
@@ -33,8 +32,13 @@ public class ItemScript : MonoBehaviour
 
     void OnMouseDown()
     {
+        //Add the item to iventory
         GameController.instance.iventory.Add(itemName);
+
         Destroy(gameObject);
-        GameController.instance.itemsDestroyStatus[itemID] = false;
+
+        //tell the GameController-instance that the item is destroyed
+        GameController.instance.itemsDestroyStatus[itemID] = false; 
+
     }
 }

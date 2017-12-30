@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour
         }
         else if (instance != this)
             Destroy(gameObject);
-        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(this); // this object needs to be kept throughout the wholegame
     }
 
 }
