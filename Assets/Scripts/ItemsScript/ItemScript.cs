@@ -7,11 +7,22 @@ using UnityEngine.SceneManagement;
 public class ItemScript : MonoBehaviour
 {
     public string itemName;
+    public bool isDestroyed;
+    public string itemID;
+
+    void Awake()
+    {      
+    }
 
     // Use this for initialization
     void Start()
     {
-
+        if (GameController.instance.itemsDestroyStatus.ContainsKey(itemID)){
+            print("existed");
+            if(GameController.instance.itemsDestroyStatus[itemID] == false){
+                Destroy(gameObject);
+            }
+        }
     }
 
     // Update is called once per frame
@@ -24,5 +35,6 @@ public class ItemScript : MonoBehaviour
     {
         GameController.instance.iventory.Add(itemName);
         Destroy(gameObject);
+        GameController.instance.itemsDestroyStatus[itemID] = false;
     }
 }

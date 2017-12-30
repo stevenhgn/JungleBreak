@@ -6,8 +6,9 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public static GameController instance;
-    //public string[] iventory;
     public List<string> iventory = new List<string>();
+    public Dictionary<string, bool> itemsDestroyStatus = new Dictionary<string, bool>();
+
 
     //public PlayerHealth playerHP;
 
@@ -21,5 +22,7 @@ public class GameController : MonoBehaviour
         }
         else if (instance != this)
             Destroy(gameObject);
+        DontDestroyOnLoad(this);
     }
+
 }
