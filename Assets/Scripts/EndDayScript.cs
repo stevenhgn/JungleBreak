@@ -18,7 +18,7 @@ public class EndDayScript : MonoBehaviour {
 		
 	}
 
-    void OnMouseDown()
+    public void EndDay()
     {
         if (playerHP.CurrentHealth > 50.0f) {
             playerHP.DealDamage(50.0f);
