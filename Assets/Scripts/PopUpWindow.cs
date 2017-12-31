@@ -7,6 +7,7 @@ public class PopUpWindow : MonoBehaviour {
     public GameObject window;
     public Text dialougeText;
 
+
 	// Use this for initialization
 	public void Show(string message) {
         dialougeText.text= message; 
