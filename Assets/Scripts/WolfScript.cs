@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class WolfScript : MonoBehaviour {
     public PopUpWindow WolfPopUp;
     public string message;
+    private int count = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +20,10 @@ public class WolfScript : MonoBehaviour {
 
     void OnMouseDown()
     {
-        WolfPopUp.Show(message);
+        while (count < 1)
+        {
+            WolfPopUp.Show(message);
+            count += 1;
+        }
     }
 }
