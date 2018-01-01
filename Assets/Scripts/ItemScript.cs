@@ -8,9 +8,9 @@ public class ItemScript : MonoBehaviour
 {
     public string itemName;
     public string itemID;
+    public float damageValue;
 
-    void Awake()
-    {      
+    void Awake() {      
     }
 
     // Use this for initialization
@@ -36,6 +36,11 @@ public class ItemScript : MonoBehaviour
         GameController.instance.iventory.Add(itemName);
 
         Destroy(gameObject);
+
+        // heal or deal damage
+        if((GameController.instance.currentHp += damageValue) > GameController.instance.maxHp){
+            GameController.instance.currentHp = GameController.instance.maxHp;
+        }
 
         //tell the GameController-instance that the item is destroyed
         GameController.instance.itemsDestroyStatus[itemID] = false; 
