@@ -29,6 +29,10 @@ public class GameController : MonoBehaviour
         currentHp = maxHp;
     }
 
-
-
+    void Die()
+    {
+        if(currentHp <= 0){
+            Debug.Log("You are dead.");
+        }
+    }
 }
