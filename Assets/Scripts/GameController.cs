@@ -6,11 +6,10 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public static GameController instance;
-    //public string[] iventory;
     public List<string> iventory = new List<string>();
-
-    //public PlayerHealth playerHP;
-
+    public Dictionary<string, bool> itemsDestroyStatus = new Dictionary<string, bool>();
+    public float currentHp { get; set; }
+    public float maxHp { get; set; }
 
     void Awake()
     {
@@ -21,5 +20,19 @@ public class GameController : MonoBehaviour
         }
         else if (instance != this)
             Destroy(gameObject);
+        DontDestroyOnLoad(this); // this object needs to be kept throughout the wholegame
+    }
+
+    void Start()
+    {
+        maxHp = 100.0f;
+        currentHp = maxHp;
+    }
+
+    void Die()
+    {
+        if(currentHp <= 0){
+            Debug.Log("You are dead.");
+        }
     }
 }

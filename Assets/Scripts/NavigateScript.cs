@@ -17,7 +17,7 @@ public class NavigateScript : MonoBehaviour {
       
 	}
 
-    void OnMouseDown()
+    public void Navigate()
     {
         SceneManager.LoadScene(SceneToBeLoaded);   
     }
