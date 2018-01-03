@@ -8,8 +8,13 @@ public class PopUpWindow : MonoBehaviour {
     public Text dialougeText;
 
 
-	// Use this for initialization
-	public void Show(string message) {
+    // Use this for initialization
+
+    public void Start()
+    {
+        window.SetActive(false);
+    }
+    public void Show(string message) {
         dialougeText.text= message; 
         //StopAllCoroutines();
         //StartCoroutine(TypeSentence(dialougeText.text));
