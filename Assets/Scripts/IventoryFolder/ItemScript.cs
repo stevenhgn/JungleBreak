@@ -1,37 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
 
-public class ItemScript : MonoBehaviour
-{
-    public string itemName;
+[CreateAssetMenu(fileName = "New Item", menuName = "Iventory/Item")]
+
+public class ItemScript : ScriptableObject {
+    new public string name = "New Item";
     public string itemID;
     public float damageValue;
+    public Sprite icon = null;
 
     void Awake() {      
     }
 
     // Use this for initialization
-    void Start()
-    {
+    void Start() {
         // If the item was destroyed, it does not need to be recreated
+        /*
         if (GameController.instance.itemsDestroyStatus.ContainsKey(itemID)){
             if(GameController.instance.itemsDestroyStatus[itemID] == false){
-                Destroy(gameObject);
+               Destroy(gameObject);
             }
-        }
+        }*/
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void OnMouseDown()
-    {
+    /*
+    void OnMouseDown() {
         Destroy(gameObject);
     
         //tell the GameController-instance that the item is destroyed
@@ -54,10 +46,5 @@ public class ItemScript : MonoBehaviour
 
         }
             
-
-
-
-
-
-    }
+    }*/
 }

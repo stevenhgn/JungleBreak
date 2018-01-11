@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public static GameController instance;
-    public List<string> iventory = new List<string>();
+    //public List<string> iventory = new List<string>();
     public Dictionary<string, bool> itemsDestroyStatus = new Dictionary<string, bool>();
     public float currentHp { get; set; }
     public float maxHp { get; set; }
