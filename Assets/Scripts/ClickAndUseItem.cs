@@ -30,9 +30,7 @@ public class ClickAndUseItem : MonoBehaviour
             }
         }
     }
-
-
-
+        
     void OnMouseDown()
     {
         Destroy(gameObject);
