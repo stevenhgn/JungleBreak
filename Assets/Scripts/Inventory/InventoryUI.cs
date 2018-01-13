@@ -18,12 +18,13 @@ public class InventoryUI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        
         if (Input.GetButtonDown("Inventory")) { 
             inventoryUI.SetActive (!inventoryUI.activeSelf);
         }
 	}
 
-    void UpdateUI () {
+    public void UpdateUI () {
 
         for (int i = 0; i < slots.Length; i++) {
             // if i is less than the amount of items in inventory

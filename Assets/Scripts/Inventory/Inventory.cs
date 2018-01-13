@@ -24,6 +24,7 @@ public class Inventory : MonoBehaviour {
 
     public int space = 6;
 
+    // list of items
     public List<ItemScript> items = new List<ItemScript>();
 
     public bool Add (ItemScript item) {

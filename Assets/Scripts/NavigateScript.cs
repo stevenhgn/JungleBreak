@@ -14,7 +14,7 @@ public class NavigateScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-      
+       
 	}
 
     public void Navigate()
