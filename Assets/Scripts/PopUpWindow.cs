@@ -28,7 +28,7 @@ public class PopUpWindow : MonoBehaviour {
         window.SetActive(false);
 	}
 
-    /*
+    /*v
     IEnumerator TypeSentence (string sentence) {
         dialougeText.text = " ";
         foreach (char letter in sentence.ToCharArray()) {

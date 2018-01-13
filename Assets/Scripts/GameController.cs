@@ -6,10 +6,12 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public static GameController instance;
-    public List<string> iventory = new List<string>();
+    //public List<string> iventory = new List<string>();
     public Dictionary<string, bool> itemsDestroyStatus = new Dictionary<string, bool>();
     public float currentHp { get; set; }
     public float maxHp { get; set; }
+    public float currentThirst { get; set; }
+    public float maxThirst { get; set; }
 
     void Awake()
     {
@@ -27,6 +29,8 @@ public class GameController : MonoBehaviour
     {
         maxHp = 100.0f;
         currentHp = maxHp;
+        maxThirst = 100.0f;
+        currentThirst = maxHp;
     }
 
     void Die()

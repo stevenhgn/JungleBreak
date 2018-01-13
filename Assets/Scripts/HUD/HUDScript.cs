@@ -15,6 +15,7 @@ public class HUDScript : MonoBehaviour
     }
 
     // Update is called once per frame
+    /*
     void Update()
     {
         string itemNames = "";
@@ -27,5 +28,7 @@ public class HUDScript : MonoBehaviour
 
         items.text = itemNames;
 
-    }
+        //foreach(object )
+    }*/
+
 }
