@@ -2,12 +2,29 @@
 
 public class InventoryUI : MonoBehaviour {
 
+
+    // Not working entirely because of the fact that it only hold the information of the first time,.
+    //public static InventoryUI instance;
+
     public Transform itemsParent;
     public GameObject inventoryUI;
 
     Inventory inventory;
 
     InventorySlot[] slots;
+
+    /*
+    void Awake()
+    {
+        // If we don't currently have a game controll....
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+            Destroy(gameObject);
+        DontDestroyOnLoad(this); // this object needs to be kept throughout the wholegame
+    }*/
 
 	void Start () {
         inventory = Inventory.instance;
@@ -18,9 +35,9 @@ public class InventoryUI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
         if (Input.GetButtonDown("Inventory")) { 
             inventoryUI.SetActive (!inventoryUI.activeSelf);
+
         }
 	}
 
