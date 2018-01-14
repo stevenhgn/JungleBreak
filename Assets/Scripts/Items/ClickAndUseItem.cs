@@ -5,7 +5,7 @@
 /// only when something is supposed to happen (like hp raise) when a player clicks on it.
 /// </summary>
 
-[CreateAssetMenu(fileName = "New Item", menuName = "Iventory/Item")]
+//[CreateAssetMenu(fileName = "New Item", menuName = "Base/Item")]
 
 public class ClickAndUseItem : MonoBehaviour
 {
@@ -30,13 +30,13 @@ public class ClickAndUseItem : MonoBehaviour
             }
         }
     }
-        
+
     void OnMouseDown()
     {
         Destroy(gameObject);
 
         //tell the GameController-instance that the item is destroyed
-        GameController.instance.itemsDestroyStatus[itemID] = false;
+        //GameController.instance.itemsDestroyStatus[itemID] = false;
 
         // heal or deal damage based on itemID - "H" for Health and "T" for Thirstiness
         if (itemID.Substring(0, 1) == "H" && (GameController.instance.currentHp += damageValue) > GameController.instance.maxHp)
@@ -58,4 +58,3 @@ public class ClickAndUseItem : MonoBehaviour
         }
     }
 }
-            
