@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
-
+// Attribute - make this object visible on the create object in Unity.
+// With the automatic new filename and in the menuNAme (Inventory/Item)
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]
 
 public class ItemScript : ScriptableObject
