@@ -6,7 +6,7 @@ public class InventoryUI : MonoBehaviour
 
     // Not working entirely because of the fact that it only hold the information of the first time,.
     //public static InventoryUI instance;
-
+    public static InventoryUI instance;
     public Transform itemsParent;
     public GameObject inventoryUI;
 
@@ -14,18 +14,6 @@ public class InventoryUI : MonoBehaviour
 
     InventorySlot[] slots;
 
-    /*
-    void Awake()
-    {
-        // If we don't currently have a game controll....
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != this)
-            Destroy(gameObject);
-        DontDestroyOnLoad(this); // this object needs to be kept throughout the wholegame
-    }*/
 
     void Start()
     {
@@ -38,6 +26,12 @@ public class InventoryUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        inventory = Inventory.instance;
+        inventory.onItemChangedCallback += UpdateUI;
+
+        slots = itemsParent.GetComponentsInChildren<InventorySlot>();
+
         if (Input.GetButtonDown("Inventory"))
         {
             inventoryUI.SetActive(!inventoryUI.activeSelf);

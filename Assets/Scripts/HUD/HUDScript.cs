@@ -5,30 +5,47 @@ using UnityEngine.UI;
 
 public class HUDScript : MonoBehaviour
 {
-    public Text items;
+    
+    public static HUDScript instance;
+
+    public Transform itemsParent;
+    public GameObject inventoryUI;
+
+    Inventory inventory;
+
+    InventorySlot[] slots;
+
+    InventoryUI inventoryUI2;
 
 
     // Use this for initialization
     void Start()
     {
+        inventory = Inventory.instance;
+        inventory.onItemChangedCallback += inventoryUI2.UpdateUI;
 
+        slots = itemsParent.GetComponentsInChildren<InventorySlot>();
     }
 
-    // Update is called once per frame
+    void Awake()
+    {
+        // If we don't currently have a game controll....
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+            Destroy(gameObject);
+        DontDestroyOnLoad(this); // this object needs to be kept throughout the wholegame
+    }
+
     /*
     void Update()
     {
-        string itemNames = "";
+        inventory = Inventory.instance;
+        inventory.onItemChangedCallback += inventoryUI2.UpdateUI;
 
-        foreach (string itemName in GameController.instance.iventory)
-        {
-            itemNames += itemName + " ";
+        slots = itemsParent.GetComponentsInChildren<InventorySlot>();
 
-        }
-
-        items.text = itemNames;
-
-        //foreach(object )
     }*/
-
 }
